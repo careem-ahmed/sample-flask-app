@@ -19,9 +19,9 @@ jobs:
     - name: set dbenv vars
       run: echo "::set-env name=DB_NAME::${{ secrets.DB_NAME }}"
     - name: set dbenv vars2
-      run: echo "::set-env name=DB_USER::postgres"
+      run: echo "::set-env name=DB_USER::${{ secrets.DB_USER }}"
     - name: set dbenv vars2
-      run: echo "::set-env name=DB_PASS::postgres" 
+      run: echo "::set-env name=DB_PASS::${{ secrets.DB_PASS }}" 
     - name: build docker containers
       run: |
         docker-compose build
