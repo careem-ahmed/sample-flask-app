@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Lint and Test
+name: Main
 
 # Controls when the action will run. Triggers the workflow on push or pull request on any branch
 on: [push, pull_request]
@@ -21,7 +21,7 @@ jobs:
         docker-compose build
     - name: Lint web using flake8 in web docker container
       run: |
-        docker-compose run ${{ secrets.SECRET_KEY }} bash -c \
+        docker-compose run web bash -c \
           "flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics \
            && flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics"
     - name: Basic smoke test
