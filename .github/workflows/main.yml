@@ -16,11 +16,8 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-    - shell: bash
-      env:
-        DB_NAME: abcd
-        DB_USER: efgh
-        DB_PASS: hijk
+    - name: set env vars
+      run: echo "::set-env name=DB_NAME::green"
     - name: build docker containers
       run: |
         docker-compose build
